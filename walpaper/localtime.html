@@ -1,0 +1,99 @@
+<!doctype html>
+<html>
+<head>
+<title>New Tab</title>
+<style>
+html {
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+.clock {
+  background-color: #f9f9f9;
+  border-radius: 50%;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  position: relative;
+  box-shadow: inset 0 0 20px gray;
+  border: 10px solid black;
+}
+.clock__dial-hour {
+  color: #4d4d4d;
+  text-shadow: 1px 1px 4px;
+  position: absolute;
+}
+.clock__dial-hour--main {
+  color: black;
+  font-size: 1.6em;
+  font-weight: 500;
+}
+.clock__hand-pivot {
+  box-shadow: 0 0 2px 2px red;
+  border: 5px solid white;
+  border-radius: 50%;
+  height: 0px;
+  width: 0px;
+  position: absolute;
+}
+.clock__hours-hand {
+  box-shadow: 1px 1px 1px 1px gray;
+  border-radius: 40% 40% 20% 20%;
+  position: absolute;
+  border: 2px solid black;
+  background-color: white;
+  width: 8px;
+}
+.clock__minutes-hand {
+  box-shadow: 1px 1px 1px 1px gray;
+  position: absolute;
+  border-radius: 40% 40% 20% 20%;
+  background-color: white;
+  border: 1px solid black;
+  width: 4px;
+}
+.clock__seconds-hand {
+  box-shadow: 1px 1px 1px 0px red;
+  position: absolute;
+  border-radius: 30%;
+  background-color: red;
+  width: 1px;
+}
+
+#container {
+  padding: 10px;
+  height: 500px;
+  font-size: 30px;
+  width: 500px;
+  margin: 150px auto;
+}
+</style>
+</head>
+<body>
+    <div id="container">
+        <div class="clock">
+            <div class="clock__hours-hand" id="hours-hand"></div>
+            <div class="clock__minutes-hand" id="minutes-hand"></div>
+            <div class="clock__seconds-hand" id="seconds-hand"></div>
+            <span class="clock__hand-pivot" id="hand-pivot"></span>
+            <span class="clock__dial-hour">1</span>
+            <span class="clock__dial-hour">2</span>
+            <span class="clock__dial-hour clock__dial-hour--main">3</span>
+            <span class="clock__dial-hour">4</span>
+            <span class="clock__dial-hour">5</span>
+            <span class="clock__dial-hour clock__dial-hour--main">6</span>
+            <span class="clock__dial-hour">7</span>
+            <span class="clock__dial-hour">8</span>
+            <span class="clock__dial-hour clock__dial-hour--main">9</span>
+            <span class="clock__dial-hour">10</span>
+            <span class="clock__dial-hour">11</span>
+            <span class="clock__dial-hour clock__dial-hour--main">12</span>
+        </div>
+    </div>
+    <script src="localtime.js"></script>
+
+</body>
+</html>
