@@ -3,7 +3,7 @@ const worldTimes = {
         timezone: 'Asia/Tokyo',
         text: 'Tokyo'
     },
-    delhi: {
+    india: {
         timezone: 'Asia/Kolkata',
         text: 'Kolkata'
     },
