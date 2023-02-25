@@ -1,22 +1,10 @@
 // import worldTimes from './config';
 
 const worldTimes = {
-    tokio: {
-        timezone: '',
-        text: 'TOKIO'
-    },
-    delhi: {
-        timezone: 'Asia/Kolkata',
-        text: 'Kolkata'
-    },
     london: {
         timezone: 'Europe/London',
         text: 'London'
-    },
-    newyork: {
-        timezone: 'America/New_York',
-        text: 'New York'
-    },
+    }
 };
 
 const getDims = (elm, removeBorder = true, removePadding = true) => {
@@ -84,10 +72,10 @@ const dt = new Date()
 // const secsElpased = dt.getSeconds()
 // const minsElapsed = dt.getMinutes() + secsElpased / 60
 // const hrsElapsed = dt.getHours() % 12 + minsElapsed / 60
-_londonTime = dt.toLocaleString('en-US', { timeZone: worldTimes.london.timezone }).split(',')[1].replace(/\s[a-z]+/gi, '').split(':');
-const secsElpased = _londonTime[2];
-const minsElapsed = _londonTime[1];
-const hrsElapsed = _londonTime[0];
+_localTime = dt.toLocaleString('en-US', { timeZone: worldTimes.london.timezone }).split(',')[1].replace(/\s[a-z]+/gi, '').split(':');
+const secsElpased = _localTime[2];
+const minsElapsed = _localTime[1];
+const hrsElapsed = _localTime[0];
 console.log(`${hrsElapsed}-${minsElapsed}-${secsElpased}`)
 const rotate = (elm, deg) => { elm.style.transform = `rotate(${deg}deg)` }
 const init = () => {

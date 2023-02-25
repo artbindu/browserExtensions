@@ -1,7 +1,7 @@
 const worldTimes = {
-    tokio: {
-        timezone: '',
-        text: 'TOKIO'
+    tokyo: {
+        timezone: 'Asia/Tokyo',
+        text: 'Tokyo'
     },
     delhi: {
         timezone: 'Asia/Kolkata',

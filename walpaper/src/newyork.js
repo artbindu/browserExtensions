@@ -1,10 +1,10 @@
 // import worldTimes from './config';
 
 const worldTimes = {
-    delhi: {
-        timezone: 'Asia/Kolkata',
-        text: 'Kolkata'
-    }
+    newyork: {
+        timezone: 'America/New_York',
+        text: 'New York'
+    },
 };
 
 const getDims = (elm, removeBorder = true, removePadding = true) => {
@@ -26,12 +26,12 @@ const clockwiseRotate = (center, angle, point) => {
     const y = movex * s + movey * c
     return { x: x + center.x, y: y + center.y }
 }
-const clock = document.getElementsByClassName('clock-india')[0]
+const clock = document.getElementsByClassName('clock-newyork')[0]
 const { height: boxH, width: boxW } = getDims(clock, false, false)
 const minv = Math.min(boxH, boxW)
 clock.style.height = clock.style.width = minv
 const { height, width } = getDims(clock)
-let dialHours = document.getElementsByClassName('clock-india__dial-hour')
+let dialHours = document.getElementsByClassName('clock-newyork__dial-hour')
 let offsetFix = dialHours[11].offsetHeight / 10
 let refx = 0
 let refy = -height / 2 + dialHours[11].offsetHeight / 2
@@ -45,13 +45,13 @@ for (let i = 1; i <= 12; ++i) {
     dialHours[i - 1].style.top = newc.y + 'px'
     dialHours[i - 1].style.left = newc.x + 'px'
 }
-const handPivot = document.getElementById('hand-pivot-india')
+const handPivot = document.getElementById('hand-pivot-newyork')
 const pivotBoxDims = getDims(handPivot, false, false)
 handPivot.style.top = height / 2 - pivotBoxDims.height / 2 + 'px'
 handPivot.style.left = width / 2 - pivotBoxDims.width / 2 + 'px'
-const hoursHand = document.getElementById('hours-hand-india')
-const minutesHand = document.getElementById('minutes-hand-india')
-const secondsHand = document.getElementById('seconds-hand-india')
+const hoursHand = document.getElementById('hours-hand-newyork')
+const minutesHand = document.getElementById('minutes-hand-newyork')
+const secondsHand = document.getElementById('seconds-hand-newyork')
 const offByPivot = 0.05 * height
 const hoursHandDims = getDims(hoursHand, false, false)
 hoursHand.style.top = 1.6 * dialHours[11].offsetHeight + 'px'
@@ -72,14 +72,14 @@ const dt = new Date()
 // const secsElpased = dt.getSeconds()
 // const minsElapsed = dt.getMinutes() + secsElpased / 60
 // const hrsElapsed = dt.getHours() % 12 + minsElapsed / 60
-_localTime = dt.toLocaleString('en-US', { timeZone: worldTimes.delhi.timezone }).split(',')[1].replace(/\s[a-z]+/gi, '').split(':');
+_localTime = dt.toLocaleString('en-US', { timeZone: worldTimes.newyork.timezone }).split(',')[1].replace(/\s[a-z]+/gi, '').split(':');
 const secsElpased = _localTime[2];
 const minsElapsed = _localTime[1];
 const hrsElapsed = _localTime[0];
 console.log(`${hrsElapsed}-${minsElapsed}-${secsElpased}`)
 const rotate = (elm, deg) => { elm.style.transform = `rotate(${deg}deg)` }
 const init = () => {
-    document.getElementById('clock-india-text').innerHTML = worldTimes.delhi.text;
+    document.getElementById('clock-newyork-text').innerHTML = worldTimes.newyork.text;
     let hrsRotn = hrsElapsed * 360 / 12
     let minsRotn = minsElapsed * 360 / 60
     let secsRotn = secsElpased * 360 / 60
