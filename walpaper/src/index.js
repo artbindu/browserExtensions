@@ -144,7 +144,7 @@ function init(type) {
         document.getElementById(`clock-${type}`).style.backgroundColor = _col.length ? _col[0].color : 'white';
     }
 
-    _localTime = placeLocalTime.split(',')[1].replace(/\s[a-z]+/gi, '').split(':');
+    let _localTime = placeLocalTime.split(',')[1].replace(/\s[a-z]+/gi, '').split(':');
     let secsElpased = _localTime[2];
     let minsElapsed = _localTime[1];
     let hrsElapsed = _localTime[0];
