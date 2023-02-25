@@ -18,7 +18,7 @@ const worldTimes = {
 };
 
 const getDims = (elm, removeBorder = true, removePadding = true) => {
-    const elmStyles = window.getComputedStyle(elm)
+    let elmStyles = window.getComputedStyle(elm)
     return {
         height: elm.offsetHeight +
             (removeBorder ? -parseInt(elmStyles.borderTopWidth, 10) - parseInt(elmStyles.borderBottomWidth, 10) : 0) +
@@ -28,12 +28,12 @@ const getDims = (elm, removeBorder = true, removePadding = true) => {
     }
 }
 const clockwiseRotate = (center, angle, point) => {
-    const movex = point.x - center.x
-    const movey = point.y - center.y
-    const s = Math.sin(angle * Math.PI / 180)
-    const c = Math.cos(angle * Math.PI / 180)
-    const x = movex * c - movey * s
-    const y = movex * s + movey * c
+    let movex = point.x - center.x
+    let movey = point.y - center.y
+    let s = Math.sin(angle * Math.PI / 180)
+    let c = Math.cos(angle * Math.PI / 180)
+    let x = movex * c - movey * s
+    let y = movex * s + movey * c
     return { x: x + center.x, y: y + center.y }
 }
 
