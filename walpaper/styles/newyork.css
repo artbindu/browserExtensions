@@ -67,7 +67,7 @@ html {
 .clock-newyork__text {
   padding-top: 300px;
   padding-left: 150px;
-  position: fixed;
+  /* position: fixed; */
   font-weight: bold;
   font-family: 'Lucida Handwriting'
 }

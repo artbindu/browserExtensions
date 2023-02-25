@@ -67,7 +67,7 @@ html {
 .clock-london__text {
   padding-top: 300px;
   padding-left: 165px;
-  position: fixed;
+  /* position: fixed; */
   font-weight: bold;
   font-family: 'Lucida Handwriting'
 }
