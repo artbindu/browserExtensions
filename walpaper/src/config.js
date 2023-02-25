@@ -8,7 +8,7 @@ const worldTimes = {
         text: 'Kolkata'
     },
     london: {
-        timezone: '',
+        timezone: 'Europe/London',
         text: 'London'
     },
     newyork: {
