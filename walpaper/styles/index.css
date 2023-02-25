@@ -5,6 +5,7 @@ table {
 .column {
     float: left;
     width: 50%;
+    background-color: rgb(190, 226, 238);
 }
 
 /* Clear floats after the columns */

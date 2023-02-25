@@ -32,6 +32,34 @@ const monthList = {
     12: 'Dec'
 };
 
+const timeColor = [
+    {
+        time: '0-3',
+        color: 'indigo'
+    }, {
+        time: '3-6',
+        color: 'violet'
+    }, {
+        time: '6-9',
+        color: 'skyblue'
+    }, {
+        time: '9-12',
+        color: 'deepskyblue'
+    }, {
+        time: '12-15',
+        color: 'cyan'
+    }, {
+        time: '15-18',
+        color: 'pink'
+    }, {
+        time: '18-21',
+        color: 'sandybrown'
+    }, {
+        time: '21-24',
+        color: 'blue'
+    }
+];
+
 const getDims = (elm, removeBorder = true, removePadding = true) => {
     let elmStyles = window.getComputedStyle(elm)
     return {
@@ -105,7 +133,15 @@ function init(type) {
     //     document.getElementById(`clock-${type}-status`).innerHTML = placeLocalTime.match(/[a-z]+/gi).toString();
     if (document.getElementById(`clock-${type}-date`)) {
         // document.getElementById(`clock-${type}-date`).innerHTML = placeLocalTime.split(' ')[0].replace(',', '');
-        document.getElementById(`clock-${type}-date`).innerHTML = `${monthList[placeLocalTime.split(' ')[0].replace(',', '').split('/')[0]]}-${placeLocalTime.split(' ')[0].replace(',', '').split('/')[1]} | ${placeLocalTime.match(/[a-z]+/gi).toString()}`
+        document.getElementById(`clock-${type}-date`).innerHTML = `${monthList[placeLocalTime.split(' ')[0].replace(',', '').split('/')[0]]}-${placeLocalTime.split(' ')[0].replace(',', '').split('/')[1]} | ${placeLocalTime.match(/[a-z]+/gi).toString()}`;
+
+        // Update Clock background color
+        let _hr = ((placeLocalTime.match(/[a-z]+/gi).toString() === 'AM' ? 0 : 12) + Number(placeLocalTime.split(' ')[1].split(':')[0])) % 24;
+        let _col = timeColor.filter(ele => {
+            let _ar = ele.time.split('-').map(el => Number(el));
+            if (_hr >= _ar[0] && _hr < _ar[1]) return ele;
+        });
+        document.getElementById(`clock-${type}`).style.backgroundColor = _col.length ? _col[0].color : 'white';
     }
 
     _localTime = placeLocalTime.split(',')[1].replace(/\s[a-z]+/gi, '').split(':');
