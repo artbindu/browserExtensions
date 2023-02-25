@@ -72,12 +72,14 @@ const dt = new Date()
 // const secsElpased = dt.getSeconds()
 // const minsElapsed = dt.getMinutes() + secsElpased / 60
 // const hrsElapsed = dt.getHours() % 12 + minsElapsed / 60
+document.getElementById('clock-london-status').innerHTML = dt.toLocaleString('en-US', { timeZone: worldTimes.london.timezone }).match(/[a-z]+/gi).toString();
 _localTime = dt.toLocaleString('en-US', { timeZone: worldTimes.london.timezone }).split(',')[1].replace(/\s[a-z]+/gi, '').split(':');
 const secsElpased = _localTime[2];
 const minsElapsed = _localTime[1];
 const hrsElapsed = _localTime[0];
 console.log(`${hrsElapsed}-${minsElapsed}-${secsElpased}`)
 const rotate = (elm, deg) => { elm.style.transform = `rotate(${deg}deg)` }
+
 const init = () => {
     document.getElementById('clock-london-text').innerHTML = worldTimes.london.text;
     let hrsRotn = hrsElapsed * 360 / 12

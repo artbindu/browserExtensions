@@ -67,6 +67,14 @@ html {
 .clock-tokyo__text {
   padding-top: 300px;
   padding-left: 180px;
+  position: fixed;
+  font-weight: bold;
+  font-family: 'Lucida Handwriting'
+}
+
+.clock-tokyo__status {
+  padding-top: 150px;
+  padding-left: 210px;
   font-weight: bold;
   font-family: 'Lucida Handwriting'
 }
