@@ -17,6 +17,21 @@ const worldTimes = {
     },
 };
 
+const monthList = {
+    1: 'Jan',
+    2: 'Feb',
+    3: 'Mar',
+    4: 'Apr',
+    5: 'May',
+    6: 'Jun',
+    7: 'Jul',
+    8: 'Aug',
+    9: 'Sep',
+    10: 'Oct',
+    11: 'Nov',
+    12: 'Dec'
+};
+
 const getDims = (elm, removeBorder = true, removePadding = true) => {
     let elmStyles = window.getComputedStyle(elm)
     return {
@@ -84,12 +99,20 @@ function init(type) {
     // let secsElpased = dt.getSeconds()
     // let minsElapsed = dt.getMinutes() + secsElpased / 60
     // let hrsElapsed = dt.getHours() % 12 + minsElapsed / 60
-    document.getElementById(`clock-${type}-status`).innerHTML = dt.toLocaleString('en-US', { timeZone: worldTimes[type].timezone }).match(/[a-z]+/gi).toString();
-    _localTime = dt.toLocaleString('en-US', { timeZone: worldTimes[type].timezone }).split(',')[1].replace(/\s[a-z]+/gi, '').split(':');
+    let placeLocalTime = dt.toLocaleString('en-US', { timeZone: worldTimes[type].timezone });
+    console.log(`${type}: ${placeLocalTime}`);
+    // if (document.getElementById(`clock-${type}-status`))
+    //     document.getElementById(`clock-${type}-status`).innerHTML = placeLocalTime.match(/[a-z]+/gi).toString();
+    if (document.getElementById(`clock-${type}-date`)) {
+        // document.getElementById(`clock-${type}-date`).innerHTML = placeLocalTime.split(' ')[0].replace(',', '');
+        document.getElementById(`clock-${type}-date`).innerHTML = `${monthList[placeLocalTime.split(' ')[0].replace(',', '').split('/')[0]]}-${placeLocalTime.split(' ')[0].replace(',', '').split('/')[1]} | ${placeLocalTime.match(/[a-z]+/gi).toString()}`
+    }
+
+    _localTime = placeLocalTime.split(',')[1].replace(/\s[a-z]+/gi, '').split(':');
     let secsElpased = _localTime[2];
     let minsElapsed = _localTime[1];
     let hrsElapsed = _localTime[0];
-    console.log(`${hrsElapsed}-${minsElapsed}-${secsElpased}`)
+    console.log(`${type} ${hrsElapsed}-${minsElapsed}-${secsElpased}`)
     let rotate = (elm, deg) => { elm.style.transform = `rotate(${deg}deg)` }
 
     showTime(type, rotate, {
