@@ -39,12 +39,12 @@ const clockwiseRotate = (center, angle, point) => {
     const y = movex * s + movey * c
     return { x: x + center.x, y: y + center.y }
 }
-const clock = document.getElementsByClassName('clock')[0]
+const clock = document.getElementsByClassName('clock-india')[0]
 const { height: boxH, width: boxW } = getDims(clock, false, false)
 const minv = Math.min(boxH, boxW)
 clock.style.height = clock.style.width = minv
 const { height, width } = getDims(clock)
-let dialHours = document.getElementsByClassName('clock__dial-hour')
+let dialHours = document.getElementsByClassName('clock-india__dial-hour')
 let offsetFix = dialHours[11].offsetHeight / 10
 let refx = 0
 let refy = -height / 2 + dialHours[11].offsetHeight / 2
@@ -58,13 +58,13 @@ for (let i = 1; i <= 12; ++i) {
     dialHours[i - 1].style.top = newc.y + 'px'
     dialHours[i - 1].style.left = newc.x + 'px'
 }
-const handPivot = document.getElementById('hand-pivot')
+const handPivot = document.getElementById('hand-pivot-india')
 const pivotBoxDims = getDims(handPivot, false, false)
 handPivot.style.top = height / 2 - pivotBoxDims.height / 2 + 'px'
 handPivot.style.left = width / 2 - pivotBoxDims.width / 2 + 'px'
-const hoursHand = document.getElementById('hours-hand')
-const minutesHand = document.getElementById('minutes-hand')
-const secondsHand = document.getElementById('seconds-hand')
+const hoursHand = document.getElementById('hours-hand-india')
+const minutesHand = document.getElementById('minutes-hand-india')
+const secondsHand = document.getElementById('seconds-hand-india')
 const offByPivot = 0.05 * height
 const hoursHandDims = getDims(hoursHand, false, false)
 hoursHand.style.top = 1.6 * dialHours[11].offsetHeight + 'px'
@@ -92,7 +92,7 @@ const hrsElapsed = _londonTime[0];
 console.log(`${hrsElapsed}-${minsElapsed}-${secsElpased}`)
 const rotate = (elm, deg) => { elm.style.transform = `rotate(${deg}deg)` }
 const init = () => {
-    document.getElementById('clock-text').innerHTML = worldTimes.delhi.text;
+    document.getElementById('clock-india-text').innerHTML = worldTimes.delhi.text;
     let hrsRotn = hrsElapsed * 360 / 12
     let minsRotn = minsElapsed * 360 / 60
     let secsRotn = secsElpased * 360 / 60
