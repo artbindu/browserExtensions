@@ -122,10 +122,9 @@ function showTime(type, fun, tConfig, hConfig) {
     }, 1000)
 }
 
-// Object.keys(worldTimes).filter(ele => ele === 'india')?.toString()
-
-init('india');
-init('tokyo');
-init('newyork');
-init('london');
-
+// Main entry point
+(function() {
+    Object.keys(worldTimes).forEach(ele => {
+        init(ele);
+    });
+})();
